@@ -1,0 +1,45 @@
+.textarea {
+    resize: none;
+    max-width: 500px;
+    height: 50px;
+    border: 3px solid black;
+    border-radius: 3px;
+    box-shadow: 
+        5px 5px red, 
+        -5px -5px blue;
+    outline: none;
+}
+
+.mainBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centers items on the line (the x-axis by default)*/
+    align-items: center; /*centers items on the cross-axis (y by default)*/
+    
+}
+
+.addNewButton {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    /*position: absolute;*/
+    margin-top: 20px;
+    width: 150px;
+    font-size: 20px;
+    background-color: antiquewhite;
+    border: none;
+    box-shadow: 3px 5px red;
+    border-radius: 5px;
+}
+
+.addNewButton:active {
+    box-shadow: 1px 2px rgb(161, 0, 0);
+    transform: translateY(3px);
+}
+
+.listItemImage {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+}
