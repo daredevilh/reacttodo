@@ -38,9 +38,9 @@ class TodoList extends React.Component {
         })
     }
 
-    onDeleteItem (index) {
+    onDeleteItem (id) {
         this.setState({
-            todoItems: this.state.todoItems.filter(i => i.id !== index)
+            todoItems: this.state.todoItems.filter(i => i.id !== id)
         })
     }
 
@@ -50,7 +50,7 @@ class TodoList extends React.Component {
             <textarea cols='50' className={styles.textarea} type='text' value={this.state.textareaValue} onChange={this.onTextareaChange}></textarea>
             <button className={styles.addNewButton} onClick={this.onAddNewItem}>Add new</button>
             <ul>
-                {this.state.todoItems.map((item, index) => <ListItem deleteItem={this.onDeleteItem} key={`${item.text}`} text={item.text} index={index} />)}
+                {this.state.todoItems.map((item) => <ListItem deleteItem={this.onDeleteItem} key={`${item.text}${item.id}`} text={item.text} id={item.id} />)}
             </ul>
         </div>
     }
@@ -61,7 +61,7 @@ const ListItem = (props) => {
     return (
         <li>
             <h2>{props.text}</h2>
-            <button onClick={() => props.deleteItem(props.index)}>delete</button>
+            <button onClick={() => props.deleteItem(props.id)}>delete</button>
         </li>
     )
 }
