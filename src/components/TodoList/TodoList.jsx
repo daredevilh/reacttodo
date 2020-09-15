@@ -27,15 +27,20 @@ class TodoList extends React.Component {
     }
 
     onAddNewItem () {
-        this.setState({
-            todoItems: [{
-                    id: this.state.todoItems.length + 1,
-                    text: this.state.textareaValue,
-                    isActive: false
-                }, ...this.state.todoItems],
-            textareaValue: ''
-
-        })
+        if (this.state.textareaValue) {
+            this.setState({
+                todoItems: [{
+                        id: this.state.todoItems.length + 1,
+                        text: this.state.textareaValue,
+                        isActive: false
+                    }, ...this.state.todoItems],
+                textareaValue: ''
+    
+            })
+        } else {
+            alert('Enter something to textarea')
+        }
+        
     }
 
     onDeleteItem (id) {
@@ -59,8 +64,8 @@ class TodoList extends React.Component {
 
 const ListItem = (props) => {
     return (
-        <li>
-            <h2>{props.text}</h2>
+        <li className={styles.listItem}>
+            <p>{props.text}</p>
             <button onClick={() => props.deleteItem(props.id)}>delete</button>
         </li>
     )

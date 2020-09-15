@@ -38,8 +38,24 @@
     transform: translateY(3px);
 }
 
-.listItemImage {
-    width: 25px;
-    height: 25px;
+.listItem {
+    min-width: 500px;
+    max-width: 550px;
+    box-shadow: 0 1px blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.listItem p {
+    box-shadow: 0 1px red;
+    font-size: 20px;
+}
+
+.listItem button {
     background-color: red;
+    color: white;
+    height: 25px;
+    border: none;
 }
