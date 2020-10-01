@@ -1,5 +1,5 @@
 .textarea {
-    resize: none;
+    min-width: 400px;
     max-width: 500px;
     height: 50px;
     border: 3px solid black;
@@ -8,6 +8,7 @@
         5px 5px red, 
         -5px -5px blue;
     outline: none;
+    font-size: 24px;
 }
 
 .mainBlock {
@@ -27,8 +28,8 @@
     margin-top: 20px;
     width: 150px;
     font-size: 20px;
-    background-color: antiquewhite;
-    border: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid blue;
     box-shadow: 3px 5px red;
     border-radius: 5px;
 }
@@ -46,16 +47,111 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    /*animation: newTodoItem 1000ms ease-out;*/
 }
 
 .listItem p {
-    box-shadow: 0 1px red;
-    font-size: 20px;
+    font-size: 22px;
 }
 
-.listItem button {
+.deleteButton {
     background-color: red;
     color: white;
     height: 25px;
     border: none;
+    border-radius: 3px;
+    outline: none;
+}
+
+.doneButton {
+    margin-right: 10px;
+    background-color: rgb(0, 184, 0);
+    color: white;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+
+.doneButton:active {
+    animation: donebtn 1000ms ease-out;
+}
+
+.line {
+    text-decoration: line-through;
+    animation: stroked 500ms ease-out;
+}
+
+.in {
+    animation: newTodoItem 1000ms ease-out;
+}
+
+.out {
+    animation: deleteTodoItem 1000ms ease-in;
+}
+
+@keyframes newTodoItem {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(50px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes deleteTodoItem {
+    0% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+
+
+}
+
+@keyframes stroked {
+    0% {
+        opacity: 0;
+        color: black;
+        text-decoration: none;
+    }
+
+    50% {
+        color: yellow;
+        text-decoration: underline;
+    }
+
+    100% {
+        opacity: 1;
+        color: rgb(0, 209, 0);
+        text-decoration: line-through;
+    }
+}
+
+@keyframes donebtn {
+    0% {
+        background-color: rgb(0, 184, 0);
+    }
+
+    50% {
+        background-color: rgb(106, 212, 106)
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255)
+    }
 }
